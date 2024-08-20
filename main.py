@@ -47,6 +47,14 @@ def main():
         print("No se pudo extraer texto del PDF.")
         return
 
+    print(f"El PDF tiene {len(pages_text)} páginas.")
+    print("Introduce el número de la página desde la cual deseas empezar a traducir (1 a {len(pages_text)}):")
+    start_page = int(input())
+
+    if start_page < 1 or start_page > len(pages_text):
+        print("Número de página no válido.")
+        return
+
     print("¿A qué idioma quieres traducirlo? (es para español, en para inglés, fr para francés, etc.)")
     dest_lang = input()
 
@@ -55,13 +63,14 @@ def main():
         print("Idioma no soportado.")
         return
 
-    for page_number, text in enumerate(pages_text, start=1):
+    for page_number, text in enumerate(pages_text[start_page-1:], start=start_page):
         print(f"Traduciendo página {page_number}...")
         translated_text = translate_text(text, dest_lang)
-       # print(f"Texto traducido de la página {page_number}: {translated_text}")
+        # print(f"Texto traducido de la página {page_number}: {translated_text}")
 
         # Reproducción de la traducción en voz
         speak_text(translated_text, lang=dest_lang)
 
 if __name__ == "__main__":
     main()
+

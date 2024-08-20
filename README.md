@@ -1,48 +1,40 @@
-# Book_translate
+# Audio Translate PDF
 
-Este proyecto permite traducir el texto de un archivo PDF a diferentes idiomas y reproducir la traducción en formato de audio.
+Este proyecto permite traducir el contenido de un archivo PDF a diferentes idiomas y reproducir la traducción en voz. Puedes seleccionar desde qué página deseas comenzar a traducir y leer el contenido del PDF.
 
 ## Requisitos
 
-Asegúrate de tener Python 3 instalado en tu sistema. Además, necesitarás instalar las siguientes bibliotecas:
+Antes de ejecutar el script, asegúrate de tener instaladas las siguientes bibliotecas de Python:
 
-- deep-translator para realizar la traducción.
-- gtts para convertir el texto traducido en audio.
-- PyPDF2 para leer el contenido del PDF.
+- `deep_translator`
+- `gtts`
+- `PyPDF2`
+- `os` (módulo estándar de Python)
 
 Puedes instalar estas bibliotecas utilizando pip. Aquí están los comandos para instalar las dependencias necesarias:
 
     pip install deep-translator gtts PyPDF2
 
-## Cómo usar
+## Uso
 
-1. **Prepara el archivo PDF:** Asegúrate de tener el archivo PDF que deseas traducir guardado en tu computadora.
-2. **Ejecuta el script:** Corre el script Python desde tu terminal. El script te pedirá la ruta del archivo PDF y el idioma al que deseas traducir el texto. Elige un idioma de entre los siguientes: español (es), inglés (en), francés (fr), alemán (de), italiano (it).
+1. **Clona este repositorio** o descarga los archivos del proyecto.
+2. **Ejecuta el script AudioTranslate.py:**
 
+    python Main.py
 
-    python path/to/your/script.py
+3. **Introduce la ruta** del archivo PDF que deseas traducir.
+4. **Selecciona la página de inicio** introduciendo el número de la página desde la cual deseas comenzar la traducción. Por ejemplo, si deseas comenzar desde la página 3, escribe 3.
+5. **Elige el idioma** al que deseas traducir el contenido. Escribe el código del idioma:
+- **'es'** para español
+- **'en'** para inglés
+- **'fr'** para francés
+- **'de'** para alemán
+- **'it'** para italiano 
 
-Reemplaza path/to/your/script.py con la ruta real de tu script.
+6. El script **traducirá** y **leerá** en voz el contenido de las páginas seleccionadas.
 
-3. **Introduce la ruta del archivo PDF:** El script te pedirá que ingreses la ruta del archivo PDF que deseas traducir.
-4. **Selecciona el idioma:** Introduce el código del idioma al que deseas traducir el texto (por ejemplo, es para español).
-5. **Escucha la traducción:** El script traducirá el texto de cada página del PDF y reproducirá la traducción en formato de audio.
-
-## Ejemplo de Ejecución
-
-    python /path/to/your/script.py
-Salida esperada:
-
-
-    Introduce la ruta del archivo PDF que deseas traducir:
-    /path/to/your/file.pdf
-    ¿A qué idioma quieres traducirlo? (es para español, en para inglés, fr para francés, etc.)
-    es
-    Traduciendo página 1...
-    Texto traducido de la página 1: (Texto traducido aquí)
 
 ## Notas
 
-Asegúrate de que el entorno virtual esté activado si estás usando uno.
-La reproducción de audio usa el comando afplay, que está disponible en macOS. Si estás en otra plataforma, es posible que necesites modificar el comando para reproducir archivos de audio.
-Si el PDF contiene imágenes en lugar de texto, considera usar una herramienta de OCR para extraer el texto.
+El script utiliza **GoogleTranslator** de la biblioteca **deep_translator** para realizar la traducción.
+La reproducción de la traducción en voz se realiza utilizando la biblioteca **gTTS** y el comando **afplay** en macOS. Si estás usando un sistema operativo diferente, puede que necesites modificar el comando de reproducción de audio **(afplay)** para que funcione en tu entorno.
